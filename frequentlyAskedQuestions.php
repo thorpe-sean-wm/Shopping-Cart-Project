@@ -20,7 +20,7 @@
         echo $e->getMessage();
     }
     ?>
-    <link rel="stylesheet" type="text/css" href="contact.css"/>
+    <link rel="stylesheet" type="text/css" href="frequentlyAskedQuestions.css"/>
 </head>
 <body>
 
@@ -28,9 +28,9 @@
     <li><p style="font-family:sans-serif ; font-size: 235%; margin: 8px; padding: 0px;"><b style="color:blueviolet">TOP</b><b>GAME</b></p></li>
     <li><a href="home.php">Home</a></li>
     <li><a href="products.php">Products</a></li>
-    <li><a class="active" href="contact.php">Contact</a></li>
+    <li><a href="contact.php">Contact</a></li>
     <li><a href="about.php">About</a></li>
-    <li><a href="frequentlyAskedQuestions.php">FAQ</a></li>
+    <li><a class="active" href="frequentlyAskedQuestions.php">FAQ</a></li>
     <li><a href="profile.php">Profile</a></li>
 </ul>
 <div style="margin-left:15%;padding:1px 16px;height:1000px;">
