@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="mdl/material.min.css">
-    <script src="mdl/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <?php
+    /*** mysql hostname ***/
+    $hostname = 'localhost';
+
+    /*** mysql username ***/
+    $username = 'root';
+
+    /*** mysql password ***/
+    $password = 'root';
+
+    try {
+        $dbh = new PDO("mysql:host=$hostname;dbname=ubuntu", $username, $password);
+        /*** echo a message saying we have connected ***/
+    }
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+    ?>
+    <link rel="stylesheet" type="text/css" href="productSpecific.css"/>
 </head>
 <body>
-<!-- Uses a header that contracts as the page scrolls down. -->
-<style>
-    .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
-        padding-right: 0;
-    }
-</style>
-
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Title</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
-        </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
+<div id="header">
+    <a href="products.php">
+        <img src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/arrow-back-outline-128.png" style="width: 35px; height: 35px"/>
+    </a>
+    <div id="header_logo">
+        <p style="text-align: center; font-family: sans-serif; margin: 8px; padding: 0;"><b style="color:blueviolet">TOP</b><b>GAME</b></p>
     </div>
-    <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here --></div>
-    </main>
+</div>
+<div id="main">
+    <div id="product_div">
+        <div id="product_pic">
+            <img class="product_pic_css" src="http://content.ibuypower.com/Images/Components/8811/VersaH35_02-kb.png"/>
+        </div>
+        <div id="product_info_">
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
+
