@@ -2,28 +2,35 @@
 <html>
 <head>
     <?php
-    /*** mysql hostname ***/
-    $hostname = 'localhost';
+        include 'includes/connection.php';
 
-    /*** mysql username ***/
-    $username = 'root';
+        if($_POST['formSubmit'] == "Submit") {
+            $varUserName = $_POST['userName'];
+            $varPassword = $_POST['password'];
+            $varFirstName = $_POST['firstName'];
+            $varLastName = $_POST['lastName'];
+        }
+    if($_POST['formSubmit'] == "Submit") {
+        $errorMessage = "";
 
-    /*** mysql password ***/
-    $password = 'root';
+        if(empty($_POST['userName'])) {
+            $errorMessage .= "<li>You forgot to enter a username!</li>";
+        }
+        if(empty($_POST['password'])) {
+            $errorMessage .= "<li>You forgot to enter a password!</li>";
+        }
+        if(empty($_POST['lastName'])) {
+            $errorMessage .= "<li>You forgot to enter a first name!</li>";
+        }
+        if(empty($_POST['firstName'])) {
+            $errorMessage .= "<li>You forgot to enter a last name!</li>";
+        }
 
-    try {
-        $dbh = new PDO("mysql:host=$hostname;dbname=ubuntu", $username, $password);
-        /*** echo a message saying we have connected ***/
-    }
-    catch(PDOException $e)
-    {
-        echo $e->getMessage();
-    }
+        $varUserName = $_POST['userName'];
+        $varPassword = $_POST['password'];
+        $varFirstName = $_POST['firstName'];
+        $varLastName = $_POST['lastName'];
 
-    if(isset($_POST['name'])) {
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        $firstName = $_POST['firstName'];
     }
     ?>
     <link rel="stylesheet" type="text/css" href="profile.css"/>
@@ -39,7 +46,15 @@
     <li><a href="frequentlyAskedQuestions.php">FAQ</a></li>
     <li><a class="active" href="profile.php">Profile</a></li>
 </ul>
+
 <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+    <?php
+        if(!empty($errorMessage))
+        {
+            echo("<p>There was an error with your form:</p>\n");
+            echo("<p>" . $errorMessage . "</p>\n");
+        }
+    ?>
     <div id="navbar">
         <table>
             <tr>
@@ -49,22 +64,13 @@
     </div>
     <div id="profile_signup_box">
         <div id="profile_topbox_login">
-            <form method="post" action="">
-                User Name: <input type="text" id="userName" name="userName"><br>
-                Password: <input type="text" id="password" name="password"><br>
-                First Name: <input type="text" id="firstName" name="firstName"><br>
-                Last Name: <input type="text" id="lastName" name="lastName"><br>
-                <input type="submit">
+            <form action="signup.php" method="post">
+                User Name: <input type="text" id="userName" name="userName" maxlength="50" value="<?=$varUserName?>"><br>
+                Password: <input type="text" id="password" name="password" maxlength="50" value="<?=$varPassword?>"><br>
+                First Name: <input type="text" id="firstName" name="firstName" maxlength="50" value="<?=$varFirstName?>"><br>
+                Last Name: <input type="text" id="lastName" name="lastName" maxlength="50" value="<?=$varLastName?>"><br>
+                <input type="submit" name="formSubmit" value="Submit">
             </form>
-            <?php
-                $query = "SELECT * FROM user";
-                $result = $odb->query($query);
-                if($result->rowCount() > 0) {
-                    foreach($result as $item) {
-                        echo($item['name'] . " is " . $item['age'] . " years old.<br />\n");
-                    }
-                }
-            ?>
         </div>
     </div>
 </div>

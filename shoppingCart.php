@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: session1
- * Date: 2/3/16
- * Time: 2:56 PM
- */
+    include 'includes/connection.php';
+
+    $query = "SELECT * FROM users";
+
+    $result = mysql_query($query);
+
+    while($users = mysql_fetch_array($result)) {
+
+        echo "<h3>" . $users['userName'] . "</h3>";
+    }
+?>
