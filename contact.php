@@ -41,6 +41,13 @@
             </tr>
         </table>
     </div>
+    <div id="contactOne">
+        <h2>Main Office</h2>
+        p: 408-216-9087
+    </div>
+    <div id="contactTwo">
+
+    </div>
 </div>
 </body>
 </html>

@@ -37,3 +37,27 @@ li a:hover:not(.active) {
     background-color: #f1f1f1;
     position:fixed;
 }
+#contactOne{
+    position: relative;
+    top: 40px;
+    left: 20px;
+    width: 300px;
+    height: 100px;
+    border: solid 2px;
+    border-color: blueviolet;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+#contactTwo{
+    position: relative;
+    top: 40px;
+    left: 20px;
+    width: 300px;
+    height: 100px;
+    border: solid 2px;
+    border-color: blueviolet;
+    border-radius: 50px;
+    background-color: #f1f1f1;
+    text-align: center;
+}

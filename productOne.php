@@ -23,21 +23,23 @@
     <link rel="stylesheet" type="text/css" href="productSpecific.css"/>
 </head>
 <body>
-    <div id="header">
-        <a href="products.php">
-            <img src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/arrow-back-outline-128.png" style="width: 35px; height: 35px"/>
-        </a>
-        <div id="header_logo">
-            <p style="text-align: center; font-family: sans-serif; margin: 8px; padding: 0;"><b style="color:blueviolet">TOP</b><b>GAME</b></p>
+<div id="header">
+    <a href="products.php">
+        <img src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/arrow-back-outline-128.png" style="width: 35px; height: 35px"/>
+    </a>
+    <div id="header_logo">
+        <p style="text-align: center; font-family: sans-serif; margin: 8px; padding: 0;"><b style="color:blueviolet">TOP</b><b>GAME</b></p>
+    </div>
+</div>
+<div id="main">
+    <div id="product_div">
+        <div id="product_pic">
+            <img class="product_pic_css" src="http://content.ibuypower.com/Images/Components/8811/VersaH35_02-kb.png"/>
+        </div>
+        <div id="product_info_">
+
         </div>
     </div>
-    <div id="body">
-        <div id="product_info">
-            <div id="product_pic">
-                <img class="product_pic_css" src="http://content.ibuypower.com/Images/Components/8811/VersaH35_02-kb.png"/>
-            </div>
-        </div>
-    </div>
+</div>
 </body>
 </html>
-

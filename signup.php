@@ -1,38 +1,51 @@
+<?php
+include 'includes/connection.php';
+
+if($_POST['formSubmit'] == "Submit") {
+    $varUserName = $_POST['userName'];
+    $varPassword = $_POST['password'];
+    $varFirstName = $_POST['firstName'];
+    $varLastName = $_POST['lastName'];
+}
+if($_POST['formSubmit'] == "Submit") {
+    $errorMessage = "";
+
+    if(empty($_POST['userName'])) {
+        $errorMessage .= "<li>You forgot to enter a username!</li>";
+    }
+    if(empty($_POST['password'])) {
+        $errorMessage .= "<li>You forgot to enter a password!</li>";
+    }
+    if(empty($_POST['lastName'])) {
+        $errorMessage .= "<li>You forgot to enter a first name!</li>";
+    }
+    if(empty($_POST['firstName'])) {
+        $errorMessage .= "<li>You forgot to enter a last name!</li>";
+    }
+
+    $varUserName = $_POST['userName'];
+    $varPassword = $_POST['password'];
+    $varFirstName = $_POST['firstName'];
+    $varLastName = $_POST['lastName'];
+
+    $stmt = $dbh->prepare('INSERT INTO users (user_id, firstName, lastName, userName, password)
+            VALUES (:user_id, :firstName, :lastName, :userName, :password)');
+    $result = $stmt->execute(
+        array(
+            'UserID' => Null,
+            'firstName' => $_POST['firstName'],
+            'lastName' => $_POST['lastName'],
+            'userName' => $_POST['userName'],
+            'password' => $_POST['password']
+        )
+    );
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <?php
-        include 'includes/connection.php';
-
-        if($_POST['formSubmit'] == "Submit") {
-            $varUserName = $_POST['userName'];
-            $varPassword = $_POST['password'];
-            $varFirstName = $_POST['firstName'];
-            $varLastName = $_POST['lastName'];
-        }
-    if($_POST['formSubmit'] == "Submit") {
-        $errorMessage = "";
-
-        if(empty($_POST['userName'])) {
-            $errorMessage .= "<li>You forgot to enter a username!</li>";
-        }
-        if(empty($_POST['password'])) {
-            $errorMessage .= "<li>You forgot to enter a password!</li>";
-        }
-        if(empty($_POST['lastName'])) {
-            $errorMessage .= "<li>You forgot to enter a first name!</li>";
-        }
-        if(empty($_POST['firstName'])) {
-            $errorMessage .= "<li>You forgot to enter a last name!</li>";
-        }
-
-        $varUserName = $_POST['userName'];
-        $varPassword = $_POST['password'];
-        $varFirstName = $_POST['firstName'];
-        $varLastName = $_POST['lastName'];
-
-    }
-    ?>
     <link rel="stylesheet" type="text/css" href="profile.css"/>
 </head>
 <body>
@@ -71,6 +84,20 @@
                 Last Name: <input type="text" id="lastName" name="lastName" maxlength="50" value="<?=$varLastName?>"><br>
                 <input type="submit" name="formSubmit" value="Submit">
             </form>
+            <?php
+            $stmt = $dbh->prepare('INSERT INTO users (user_id, firstName, lastName, userName, password)
+            VALUES (:user_id, :firstName, :lastName, :userName, :password)');
+            $result = $stmt->execute(
+                array(
+                    'UserID' => Null,
+                    'firstName' => $_POST['firstName'],
+                    'lastName' => $_POST['lastName'],
+                    'userName' => $_POST['userName'],
+                    'password' => $_POST['password']
+                )
+            );
+            ?>
+
         </div>
     </div>
 </div>

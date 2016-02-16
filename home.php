@@ -37,8 +37,8 @@
         <p style="font-size: 200%; margin: 0px; padding: 10px;">Welcome To</p>
         <p style="font-size: 500%; margin: 0px; padding: 0px;"><b style="color:blueviolet">TOP</b><b>GAME</b></p>
     </div>
-    <div id="home_headVideo">
-        <embed src="https://www.youtube.com/watch/v=WYetZzlVOLI?autoplay=1" width="320" height="320" loop="true"> </embed>
+    <div>
+        <img src="http://www.digitalstormonline.com/img/gaming-desktops.jpg" style="width: 100%; height: 600px"/>
     </div>
 </div>
 </body>
